@@ -110,10 +110,10 @@ class Purifier_Security extends Kohana_Security {
 	{
 		if (is_array($str))
 		{
-			foreach ($str as $i => $s)
+			foreach ($str as &$s)
 			{
 				// Recursively clean arrays
-				$str[$i] = Security::xss_clean($s);
+				$s = Security::xss_clean($s);
 			}
 
 			return $str;
